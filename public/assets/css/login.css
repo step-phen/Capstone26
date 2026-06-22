@@ -1,0 +1,282 @@
+/* ── Google Fonts ──────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+[hidden] { display: none !important; }
+
+html, body {
+  height: 100%;
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+/* ── Body / Background ─────────────────────────────────────── */
+.bg-building {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.68), rgba(0,0,0,0.68)),
+    url('https://images.unsplash.com/photo-1562774053-701939374585?w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ── Header ────────────────────────────────────────────────── */
+.header-gradient {
+  background: #5b0610;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,.3), 0 4px 6px -2px rgba(0,0,0,.2);
+  z-index: 10;
+  position: relative;
+}
+
+.header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-title {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+}
+
+.header-sub {
+  color: rgba(255,220,220,0.85);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+.logo-img {
+  height: 56px;
+  width: 56px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.header-divider {
+  width: 2px;
+  height: 44px;
+  background: rgba(255,255,255,0.25);
+  flex-shrink: 0;
+}
+
+/* ── Main ──────────────────────────────────────────────────── */
+.main-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+/* ── Login Card ────────────────────────────────────────────── */
+.login-card {
+  background: rgba(30, 30, 30, 0.85);
+  border-radius: 8px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.65);
+  width: 440px;
+  max-width: 95vw;
+  padding: 36px 36px 28px;
+}
+
+/* ── Auth Divider ──────────────────────────────────────────── */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 26px;
+}
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #3f3f3f;
+}
+.auth-divider span {
+  color: #aaa;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+}
+
+/* ── Form Fields ───────────────────────────────────────────── */
+.field-group        { margin-bottom: 18px; }
+.field-group--last  { margin-bottom: 26px; }
+
+.form-label {
+  display: block;
+  color: #ccc;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 7px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+  color: #222;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-input--pad-right { padding-right: 42px; }
+
+.form-input:focus {
+  border-color: #990000;
+  box-shadow: 0 0 0 3px rgba(153,0,0,0.14);
+}
+
+.form-input[type='password']::-ms-reveal,
+.form-input[type='password']::-ms-clear {
+  display: none;
+}
+
+/* ── Password Toggle ───────────────────────────────────────── */
+.password-wrapper { position: relative; }
+
+.password-toggle {
+  position: absolute;
+  right: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+.password-toggle:hover { color: #444; }
+
+.password-toggle .material-symbols-outlined {
+  font-size: 20px;
+  line-height: 1;
+  user-select: none;
+}
+
+/* ── Buttons ───────────────────────────────────────────────── */
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.btn-clear {
+  padding: 10px 20px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background: transparent;
+  color: #bbb;
+  font-size: 13px;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.btn-clear:hover {
+  border-color: #888;
+  color: #fff;
+  background: rgba(255,255,255,0.06);
+}
+
+.btn-login {
+  padding: 10px 32px;
+  border: none;
+  border-radius: 4px;
+  background: #fff;
+  color: #000;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transition: all 0.2s ease;
+}
+.btn-login:hover {
+  background: #f0f0f0;
+  box-shadow: 0 4px 14px rgba(255,255,255,0.3);
+}
+.btn-login:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ── Footer ────────────────────────────────────────────────── */
+.site-footer {
+  background: rgba(0,0,0,0.82);
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 10px 28px;
+  text-align: center;
+}
+
+.footer-text {
+  color: #666;
+  font-size: 11.5px;
+}
+
+/* ── Toast ─────────────────────────────────────────────────── */
+#toast {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  background: #fff;
+  color: #222;
+  padding: 12px 18px;
+  border-radius: 6px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+  transform: translateX(calc(100% + 32px));
+  transition: transform 0.3s ease;
+  z-index: 50;
+  font-size: 13.5px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 320px;
+}
+#toast.show { transform: translateX(0); }
+
+.toast-icon {
+  color: #990000;
+  font-size: 18px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* ── Animations ─────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.anim   { opacity: 0; animation: fadeInUp 0.55s ease-out forwards; }
+.anim-1 { animation-delay: 0.05s; }
+.anim-2 { animation-delay: 0.15s; }
