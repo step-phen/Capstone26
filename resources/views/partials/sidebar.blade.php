@@ -1,31 +1,31 @@
 <!-- Primary navigation -->
 <ul class="nav-list primary-nav">
     <li class="nav-item">
-        <a href="{{ route('teacher.dashboard') }}" class="nav-link">
+        <a href="{{ route('teacher.dashboard') }}" class="nav-link {{ request()->routeIs('teacher.dashboard') ? 'active' : '' }}">
             <span class="nav-icon material-symbols-rounded">dashboard</span>
             <span class="nav-label">Dashboard</span>
         </a>
     </li>
     <li class="nav-item">
-        <a href="{{ route('teacher.learners') }}" class="nav-link">
+        <a href="{{ route('teacher.learners') }}" class="nav-link {{ request()->routeIs('teacher.learners') ? 'active' : '' }}">
             <span class="nav-icon material-symbols-rounded">manage_accounts</span>
             <span class="nav-label">Learners</span>
         </a>
     </li>
     <li class="nav-item">
-        <a href="{{ route('teacher.module') }}" class="nav-link">
+        <a href="{{ route('teacher.module') }}" class="nav-link {{ request()->routeIs('teacher.module') ? 'active' : '' }}">
             <span class="nav-icon material-symbols-rounded">book</span>
             <span class="nav-label">Modules</span>
         </a>
     </li>
     <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a href="{{ route('teacher.developmentalchecklist') }}" class="nav-link {{ request()->routeIs('teacher.developmentalchecklist') ? 'active' : '' }}">
             <span class="nav-icon material-symbols-rounded">checklist</span>
             <span class="nav-label">Developmental Checklist</span>
         </a>
     </li>
     <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a href="{{ route('teacher.report') }}" class="nav-link {{ request()->routeIs('teacher.report') ? 'active' : '' }}">
             <span class="nav-icon material-symbols-rounded">bar_chart</span>
             <span class="nav-label">Reports</span>
         </a>

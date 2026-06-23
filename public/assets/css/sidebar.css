@@ -199,3 +199,22 @@ body {
     width: 100%;
     left: 0;
 }
+
+.main-content {
+    margin-left: 270px;
+    padding: 30px;
+    transition: margin-left 0.4s ease;
+}
+
+.sidebar.collapsed ~ .main-content {
+    margin-left: 85px;
+}
+
+.sidebar-nav .nav-link.active {
+    background: rgba(250, 240, 230, 0.2);
+    color: yellow;
+}
+
+.sidebar-nav .nav-link.active:hover {
+    background: rgba(250, 240, 230, 0.3);
+}

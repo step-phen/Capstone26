@@ -5,6 +5,11 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\LearnersController;
 use App\Http\Controllers\ModuleController;
+use App\Http\Controllers\DclController;
+use App\Http\Controllers\ReportController;
+
+
+
 
 
 
@@ -27,5 +32,9 @@ Route::get('/learners', [LearnersController::class, 'learners'])
 Route::get('/module', [ModuleController::class, 'module'])
     ->name('teacher.module');
 
+Route::get('/developmental-checklist', [DclController::class, 'showDevelopmentalChecklist'])
+    ->name('teacher.developmentalchecklist');
 
+Route::get('/report', [ReportController::class, 'showReport'])
+    ->name('teacher.report');
 
