@@ -35,9 +35,12 @@
 <!-- Secondary navigation -->
 <ul class="nav-list secondary-nav">
     <li class="nav-item">
-        <a href="#" class="nav-link">
-            <span class="nav-icon material-symbols-rounded">logout</span>
-            <span class="nav-label">Logout</span>
-        </a>
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="nav-link">
+                <span class="nav-icon material-symbols-rounded">logout</span>
+                <span class="nav-label">Logout</span>
+            </button>
+        </form>
     </li>
 </ul>

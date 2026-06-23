@@ -18,13 +18,13 @@ window.addEventListener('focus', syncIcons);
 
 // ── Clear ────────────────────────────────────────────
 document.getElementById('clearBtn').addEventListener('click', () => {
-  document.getElementById('email').value = '';
+  document.getElementById('username').value = '';
   passInput.value          = '';
   passInput.type           = 'password';
   iconOpen.hidden   = false;
   iconClosed.hidden = true;
   syncIcons();
-  document.getElementById('email').focus();
+  document.getElementById('username').focus();
 });
 
 // ── Toast ────────────────────────────────────────────
@@ -39,21 +39,33 @@ function showToast(msg, ms = 3200) {
 
 // ── Form submit ──────────────────────────────────────
 document.getElementById('loginForm').addEventListener('submit', (e) => {
-  e.preventDefault();
-  const email = document.getElementById('email').value.trim();
+  const username = document.getElementById('username').value.trim();
   const password = passInput.value.trim();
 
-  if (!email && !password) { showToast('Please enter your email and password.'); return; }
-  if (!email)               { showToast('Please enter your email.');              return; }
-  if (!password)               { showToast('Please enter your password.');              return; }
+  if (!username && !password) { 
+    e.preventDefault();
+    showToast('Please enter your username and password.'); 
+    return; 
+  }
+  if (!username) { 
+    e.preventDefault();
+    showToast('Please enter your username.'); 
+    return; 
+  }
+  if (!password) { 
+    e.preventDefault();
+    showToast('Please enter your password.'); 
+    return; 
+  }
+});
 
-  const btn = document.getElementById('loginBtn');
-  btn.textContent = 'Logging in…';
-  btn.disabled    = true;
-
-  setTimeout(() => {
-    btn.textContent = 'Login';
-    btn.disabled    = false;
-    showToast('Login functionality is for demonstration only.');
-  }, 1500);
+// ── Show error toast on page load ────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+  const errorElement = document.querySelector('[data-login-error]');
+  if (errorElement) {
+    const errorMsg = errorElement.getAttribute('data-login-error');
+    if (errorMsg) {
+      showToast(errorMsg);
+    }
+  }
 });
