@@ -1,19 +1,19 @@
 <!-- Primary navigation -->
 <ul class="nav-list primary-nav">
     <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a href="{{ route('teacher.dashboard') }}" class="nav-link">
             <span class="nav-icon material-symbols-rounded">dashboard</span>
             <span class="nav-label">Dashboard</span>
         </a>
     </li>
     <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a href="{{ route('teacher.learners') }}" class="nav-link">
             <span class="nav-icon material-symbols-rounded">manage_accounts</span>
             <span class="nav-label">Learners</span>
         </a>
     </li>
     <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a href="{{ route('teacher.module') }}" class="nav-link">
             <span class="nav-icon material-symbols-rounded">book</span>
             <span class="nav-label">Modules</span>
         </a>
