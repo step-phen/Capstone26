@@ -6,7 +6,7 @@
             <h1 class="header-title">
                 SOUTHERN DE ORO PHILIPPINES COLLEGE
             </h1>
-            <p class="header-sub">Teacher Access</p>
+            <p class="header-sub">An Interactive E-learning and Developmental Checklist System</p>
         </div>
     </div>
 </header>

@@ -8,7 +8,7 @@
             padding: 20px;
         }
 
-        /* ===== MODERN HEADER ===== */
+        /* ===== HEADER ===== */
         .learners-header {
             display: flex;
             justify-content: space-between;
@@ -41,6 +41,44 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .search-bar {
+            position: relative;
+            max-width: 500px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 16px 10px 42px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 13px;
+            font-family: inherit;
+            background: #fff;
+            color: #222;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .search-bar input:focus {
+            border-color: #5b0610;
+            box-shadow: 0 0 0 3px rgba(91, 6, 16, 0.08);
+        }
+
+        .search-bar input::placeholder {
+            color: #aaa;
+        }
+
+        .search-bar .search-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            pointer-events: none;
+            font-size: 18px;
         }
 
         .header-badge {
@@ -79,7 +117,7 @@
         /* ===== GRID ===== */
         .learners-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 20px;
         }
 
@@ -188,6 +226,25 @@
             background: #0b5ed7;
         }
 
+        /* ===== EMPTY STATE ===== */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+            grid-column: 1 / -1;
+        }
+
+        .empty-state .material-symbols-rounded {
+            font-size: 56px;
+            color: #ddd;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .empty-state p {
+            font-size: 14px;
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .learners-header {
@@ -201,7 +258,7 @@
                 flex-wrap: wrap;
             }
 
-            .learners-details {
+            .form-row {
                 grid-template-columns: 1fr;
             }
         }
@@ -211,110 +268,70 @@
 @section('content')
     <div class="learners-container">
 
-        <!-- HEADER -->
+        {{-- ===== HEADER ===== --}}
         <div class="learners-header">
-
             <div class="header-content">
                 <h1>Learners</h1>
                 <p>Manage learner profiles and track development progress in real time.</p>
             </div>
 
             <div class="header-actions">
-
                 <div class="header-badge">
                     <span class="material-symbols-rounded" style="font-size:18px;">groups</span>
-                    4 Total Learners
+                    <span id="learnerCount">{{ $learners->count() }}</span> Total Learner{{ $learners->count() !== 1 ? 's' : '' }}
                 </div>
 
-                <button class="add-learner-btn">
+                <button class="add-learner-btn" data-modal-open="addLearnerModal">
                     <span class="material-symbols-rounded">add</span>
                     Add Learner
                 </button>
-
             </div>
-
         </div>
 
-        <!-- GRID -->
-        <div class="learners-grid">
-
-            <!-- CARD 1 -->
-            <div class="learner-card">
-                <div class="learner-avatar">JD</div>
-                <div class="learner-info">
-                    <div class="learner-name">Juan Dela Cruz</div>
-
-                    <div class="learner-details">
-                        <div class="learner-detail"><strong>ID:</strong> 1</div>
-                        <div class="learner-detail"><strong>Age:</strong> 7</div>
-                        <div class="learner-detail"><strong>Gender:</strong> Male</div>
-                    </div>
-
-                    <div class="learner-actions">
-                        <button class="btn-view">Profile</button>
-                        <button class="btn-progress">Progress</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CARD 2 -->
-            <div class="learner-card">
-                <div class="learner-avatar">MS</div>
-                <div class="learner-info">
-                    <div class="learner-name">Maria Santos</div>
-
-                    <div class="learner-details">
-                        <div class="learner-detail"><strong>ID:</strong> 2</div>
-                        <div class="learner-detail"><strong>Age:</strong> 8</div>
-                        <div class="learner-detail"><strong>Gender:</strong> Female</div>
-                    </div>
-
-                    <div class="learner-actions">
-                        <button class="btn-view">Profile</button>
-                        <button class="btn-progress">Progress</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CARD 3 -->
-            <div class="learner-card">
-                <div class="learner-avatar">PG</div>
-                <div class="learner-info">
-                    <div class="learner-name">Pedro Garcia</div>
-
-                    <div class="learner-details">
-                        <div class="learner-detail"><strong>ID:</strong> 3</div>
-                        <div class="learner-detail"><strong>Age:</strong> 9</div>
-                        <div class="learner-detail"><strong>Gender:</strong> Male</div>
-                    </div>
-
-                    <div class="learner-actions">
-                        <button class="btn-view">Profile</button>
-                        <button class="btn-progress">Progress</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CARD 4 -->
-            <div class="learner-card">
-                <div class="learner-avatar">AL</div>
-                <div class="learner-info">
-                    <div class="learner-name">Ana Lopez</div>
-
-                    <div class="learner-details">
-                        <div class="learner-detail"><strong>ID:</strong> 4</div>
-                        <div class="learner-detail"><strong>Age:</strong> 8</div>
-                        <div class="learner-detail"><strong>Gender:</strong> Female</div>
-                    </div>
-
-                    <div class="learner-actions">
-                        <button class="btn-view">Profile</button>
-                        <button class="btn-progress">Progress</button>
-                    </div>
-                </div>
-            </div>
-
+        {{-- ===== SEARCH BAR ===== --}}
+        <div class="search-bar" style="margin-bottom: 20px;">
+            <span class="material-symbols-rounded search-icon">search</span>
+            <input type="text" 
+                   id="searchLearner" 
+                   placeholder="Search learners by name..." 
+                   autocomplete="off">
         </div>
+
+        @include('teacher.partials.card.learner-card', ['learners' => $learners])
 
     </div>
+
+    @include('teacher.partials.modal.add-learner-modal')
+
+@endsection
+
+@section('scripts')
+    <script>
+        // Search functionality
+        const searchInput = document.getElementById('searchLearner');
+        const learnerCards = document.querySelectorAll('.learner-card');
+        const learnerCount = document.getElementById('learnerCount');
+        const emptyState = document.querySelector('.empty-state');
+
+        searchInput?.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            learnerCards.forEach(card => {
+                const name = card.querySelector('.learner-name')?.textContent.toLowerCase() || '';
+                if (name.includes(query)) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (learnerCount) learnerCount.textContent = visibleCount;
+
+            if (emptyState) {
+                emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+            }
+        });
+    </script>
 @endsection

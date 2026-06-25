@@ -3,7 +3,7 @@
     <div class="login-card anim anim-1" @if($errors->has('username')) data-login-error="{{ $errors->first('username') }}" @endif>
         <!-- Divider label -->
         <div class="auth-divider">
-            <span>User Authentication</span>
+            <span>Login Account</span>
         </div>
 
         <!-- Form -->

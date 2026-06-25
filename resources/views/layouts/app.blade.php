@@ -16,10 +16,10 @@
 <body>
     <aside class="sidebar">
         <!-- Sidebar header -->
-        @include('partials.header')
+        @include('layouts.partials.header')
 
         <nav class="sidebar-nav">
-            @include('partials.sidebar')
+            @include('layouts.partials.sidebar')
         </nav>
     </aside>
     <main class="main-content">
@@ -28,6 +28,8 @@
 
     <!-- Script for sidebar toggle -->
     <script src="{{ asset('assets/js/sidebar-toggle.js') }}"></script>
+    <script src="{{ asset('assets/js/modal.js') }}"></script>
+    @yield('scripts')
 </body>
 
 </html>
